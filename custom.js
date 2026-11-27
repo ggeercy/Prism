@@ -554,43 +554,8 @@ const backToTopInit = () => {
 
 document.addEventListener("DOMContentLoaded", backToTopInit);
 
-// ======= Dark Toggle =======
-const themeDarkToggleInit = () => {
-  
-  function applyTheme(theme) {
-    document.documentElement.setAttribute('data-bs-theme', theme);
-    const themeIcon = document.getElementById('themeIcon');
-    
-    if (theme === 'dark') {
-      if (themeIcon) {
-        themeIcon.classList.remove('bi-sun');
-        themeIcon.classList.add('bi-moon');
-      }
-    } else {
-      if (themeIcon) {
-        themeIcon.classList.remove('bi-moon');
-        themeIcon.classList.add('bi-sun');
-      }
-    }
-  }
-
-  const storedTheme = localStorage.getItem('theme') || 'light';
-  applyTheme(storedTheme);
-
-  function toggleTheme(e) {
-    e.preventDefault();
-    const currentTheme = document.documentElement.getAttribute('data-bs-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    localStorage.setItem('theme', newTheme);
-    applyTheme(newTheme);
-  }
-
-  toggleThemeBtn = document.getElementById('themeToggleBtn');
-  if (toggleThemeBtn) {
-    toggleThemeBtn.addEventListener('click', toggleTheme);
-  }
-};
-document.addEventListener("DOMContentLoaded", themeDarkToggleInit);
+// ======= Dark Mode Only =======
+document.documentElement.setAttribute('data-bs-theme', 'dark');
 
 // ======= Inline SVG =======
 const inlineSvgInit = () => {
